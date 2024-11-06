@@ -1,0 +1,5 @@
+venv/*
+venv
+
+npm_modules/*
+npm_modules
