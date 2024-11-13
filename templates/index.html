@@ -2,18 +2,31 @@
 
 {% block content %}
 
-<div class="flex flex-col justify-center items-center h-full w-screen">
-    <div class="flex flex-col gap-3 m-auto h-1/12 w-5/12">
+<div class="flex flex-col justify-center items-center h-full px-3 w-screen">
+    <div class="flex flex-col gap-3 h-1/12 w-full md:w-5/12">
         <h1 class="text-center">
             How can I help you?
         </h1>
-        <textarea
-            class="w-full resize-none p-2 text-base rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
-            name="query" 
-            id="user_query" 
-            rows="1"
-            placeholder="Im looking for..."
+        <div class="relative">
+            <textarea
+                class="w-full resize-none px-2 py-2.5 text-base rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
+                name="query" 
+                id="user_query" 
+                rows="1"
+                placeholder="Im looking for..."
             ></textarea>
+            <button type="submit"
+                class="flex gap-1 text-white bg-gray-400 absolute end-2.5 bottom-3.5 px-3 py-0.5 rounded-lg text-xl"
+            >
+                <div style="-webkit-transform: rotate(45deg); 
+                -moz-transform: rotate(45deg); 
+                  -o-transform: rotate(45deg);
+                     transform: rotate(45deg);">
+                    &#9906;
+                </div>
+            </button>
+
+        </div>
     </div>
 </div>
 

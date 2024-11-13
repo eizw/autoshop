@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="flex flex-col gap-10 mx-3 lg:mx-96 h-full">
+    <h1 class="title">Item List</h1>
+
+    <div class="flex flex-col md:flex-row gap-1 h-5/6">
+        <div class="bg-gray-200 md:w-3/12 py-3">
+            <div class="category-title px-3 py-2 {{'bg-gray-500 text-white' if current_category=='' else ''}}">
+                <a href="/items">
+                    All
+                </a>
+            </div>
+            {% for category in categories %}
+                <div class="category-title px-3 py-2 {{'bg-gray-500 text-white' if current_category==category else ''}}">
+                    <a href="/items?category={{category}}"> 
+                        {{ category[0]|capitalize ~ '' ~ category[1:] }}
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="flex flex-wrap flex-row w-full overflow-scroll">
+            {% for item in items %}
+                <div class="item-container">
+                    <div class="item-card">
+                        <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                        <h3>{{ item.name }}</h3>
+                        <p>Price: {{ item.price }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .title {
+        font-size: 3em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .category-section {
+        margin-bottom: 20px;
+    }
+    .category-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .item-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .item-card {
+        width: 150px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+    .item-card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+</style>
+
+{% endblock %}

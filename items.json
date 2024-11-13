@@ -1,0 +1,38 @@
+{ 
+    "grocery": [
+    {"name": "Bread", "category": "Grocery", "price": "RM 3.50", "image_url": "/static/images/grocery/bread.jpg"},
+    {"name": "Butter", "category": "Grocery", "price": "RM 4.00", "image_url": "/static/images/grocery/butter.jpg"},
+    {"name": "Cheese", "category": "Grocery", "price": "RM 5.00", "image_url": "/static/images/grocery/cheese.jpg"},
+    {"name": "Egg", "category": "Grocery", "price": "RM 12.50", "image_url": "/static/images/grocery/egg.jpg"},
+    {"name": "Flour", "category": "Grocery", "price": "RM 2.20", "image_url": "/static/images/grocery/flour.jpg"},
+    {"name": "Milk", "category": "Grocery", "price": "RM 6.00", "image_url": "/static/images/grocery/milk.jpg"},
+    {"name": "Mixed Vege", "category": "Grocery", "price": "RM 5.40", "image_url": "/static/images/grocery/mixedvege.jpg"},
+    {"name": "Pasta", "category": "Grocery", "price": "RM 4.00", "image_url": "/static/images/grocery/pasta.jpg"},
+    {"name": "Rice", "category": "Grocery", "price": "RM 35.00", "image_url": "/static/images/grocery/rice.jpg"},
+    {"name": "Sugar", "category": "Grocery", "price": "RM 2.80", "image_url": "/static/images/grocery/sugar.jpg"}
+    ],
+    "hygiene": [
+    {"name": "Deodorant", "category": "Hygiene", "price": "RM 7.00", "image_url": "/static/images/hygiene/deodorant.jpg"},
+    {"name": "Face Wash", "category": "Hygiene", "price": "RM 7.90", "image_url": "/static/images/hygiene/facewash.jpg"},
+    {"name": "Hand Wash", "category": "Hygiene", "price": "RM 8.00", "image_url": "/static/images/hygiene/handwash.jpg"},
+    {"name": "Lotion", "category": "Hygiene", "price": "RM 9.90", "image_url": "/static/images/hygiene/lotion.jpg"},
+    {"name": "Nail Clipper", "category": "Hygiene", "price": "RM 4.00", "image_url": "/static/images/hygiene/nailclipper.jpg"},
+    {"name": "Shampoo", "category": "Hygiene", "price": "RM 11.90", "image_url": "/static/images/hygiene/shampoo.jpg"},
+    {"name": "Shaving Cream", "category": "Hygiene", "price": "RM 6.90", "image_url": "/static/images/hygiene/shavingcream.jpg"},
+    {"name": "Shower Gel", "category": "Hygiene", "price": "RM 14.50", "image_url": "/static/images/hygiene/showergel.jpg"},
+    {"name": "Toothbrush", "category": "Hygiene", "price": "RM 7.50", "image_url": "/static/images/hygiene/toothbrush.jpg"},
+    {"name": "Toothpaste", "category": "Hygiene", "price": "RM 9.00", "image_url": "/static/images/hygiene/toothpaste.jpg"}
+    ],
+    "snack": [
+    {"name": "Candy", "category": "Snack", "price": "RM 4.50", "image_url": "/static/images/snack/candy.jpg"},
+    {"name": "Chips", "category": "Snack", "price": "RM 3.00", "image_url": "/static/images/snack/chips.jpg"},
+    {"name": "Coconut Water", "category": "Snack", "price": "RM 5.00", "image_url": "/static/images/snack/coconut.jpg"},
+    {"name": "Coke", "category": "Snack", "price": "RM 3.00", "image_url": "/static/images/snack/coke.jpg"},
+    {"name": "Cookies", "category": "Snack", "price": "RM 5.00", "image_url": "/static/images/snack/cookies.jpg"},
+    {"name": "Nuts", "category": "Snack", "price": "RM 2.40", "image_url": "/static/images/snack/nuts.jpg"},
+    {"name": "Orange Juice", "category": "Snack", "price": "RM 5.50", "image_url": "/static/images/snack/orangejuice.jpg"},
+    {"name": "Pepsi", "category": "Snack", "price": "RM 3.50", "image_url": "/static/images/snack/pepsi.jpg"},
+    {"name": "Popcorn", "category": "Snack", "price": "RM 6.00", "image_url": "/static/images/snack/popcorn.jpg"},
+    {"name": "Tea", "category": "Snack", "price": "RM 4.90", "image_url": "/static/images/snack/tea.jpg"}
+    ]
+}
