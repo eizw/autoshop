@@ -8,26 +8,71 @@
             How can I help you?
         </h1>
         <div class="relative">
-            <textarea
-                class="w-full resize-none px-2 py-2.5 text-base rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
-                name="query" 
-                id="user_query" 
-                rows="1"
-                placeholder="Im looking for..."
-            ></textarea>
-            <button type="submit"
-                class="flex gap-1 text-white bg-gray-400 absolute end-2.5 bottom-3.5 px-3 py-0.5 rounded-lg text-xl"
-            >
-                <div style="-webkit-transform: rotate(45deg); 
-                -moz-transform: rotate(45deg); 
-                  -o-transform: rotate(45deg);
-                     transform: rotate(45deg);">
-                    &#9906;
-                </div>
-            </button>
-
+            <form action="/api/chat" method="POST" id="chat-form">
+                <!-- <textarea
+                    class="w-full resize-none px-2 py-2.5 text-base rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                    name="user_query" 
+                    id="user-query" 
+                    rows="1"
+                    placeholder="Im looking for..."
+                    required
+                ></textarea> -->
+                <input type="text" 
+                    placeholder="I'm looking for..." 
+                    class="w-full resize-none px-2 py-2.5 text-base rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                    required
+                    name="user_query"
+                />
+                <button type="submit"
+                    class="flex gap-1 text-white bg-gray-400 absolute end-2.5 bottom-2 px-3 py-0.5 rounded-lg text-xl"
+                >
+                    <div style="-webkit-transform: rotate(45deg); 
+                    -moz-transform: rotate(45deg); 
+                      -o-transform: rotate(45deg);
+                         transform: rotate(45deg);">
+                        &#9906;
+                    </div>
+                </button>
+                <input type="submit" hidden />
+            </form>
         </div>
     </div>
 </div>
 
+
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+function pasteIntoInput(el, text) {
+    el.focus();
+    if (typeof el.selectionStart == "number"
+            && typeof el.selectionEnd == "number") {
+        var val = el.value;
+        var selStart = el.selectionStart;
+        el.value = val.slice(0, selStart) + text + val.slice(el.selectionEnd);
+        el.selectionEnd = el.selectionStart = selStart + text.length;
+    } else if (typeof document.selection != "undefined") {
+        var textRange = document.selection.createRange();
+        textRange.text = text;
+        textRange.collapse(false);
+        textRange.select();
+    }
+}
+
+function handleEnter(evt) {
+    if (evt.keyCode == 13 && evt.shiftKey) {
+        if (evt.type == "keypress") {
+            pasteIntoInput(this, "\n");
+        }
+        evt.preventDefault();
+    }
+}
+
+$("#chat-form").submit(function(e) {
+    e.preventDefault;
+})
+$("#user-query").keydown(handleEnter).keypress(handleEnter);
+</script>
 {% endblock %}
