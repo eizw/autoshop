@@ -25,8 +25,7 @@ for cat in all_items_with_categories.values():
         all_items.append(i)
 
 llm = genai.GenerativeModel("gemini-1.5-flash")
-preset_msg = "You are a shop assisntant in a store with the following items: " + ', '.join([i['name'] for i in all_items]) + ". Help the user based on what he needs."
-        
+preset_msg = "You are a shop assistant in a store with the following items: " + ', '.join([i['name'] for i in all_items]) + ". Help the user based on what he needs."
 # print(sum([i.name for i in ], []))
 
 @app.route('/')
