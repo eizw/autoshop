@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 import google.generativeai as genai
 import markdown
+import speech_recognition as sr
 
 load_dotenv()
 LLAMA_API_KEY = os.getenv('LLAMA_API_KEY')
@@ -37,10 +38,38 @@ def chat_with_bot():
     request = flask.request
     if request.method == "POST":
         data = request.form
-        q = data.get('user_query')
-        msg = preset_msg + q
+        q = data.get('user_query', "")
+        print(request.files)
 
+        if "user_voice" in data:
+            print("voice input")
+            if "voice_query" not in request.files:
+                return flask.render_template("chat.html",
+                                                prev="Audio file not found"
+                                            )
+            
+            file = request.files["voice_query"]
+            if file.filename == "":
+                return flask.redirect(request.url)
+            print(file)
+                
+            if file:
+                recognizer = sr.Recognizer()
+                audioFile = sr.AudioFile(file)
+                with audioFile as source:
+                    data = recognizer.record(source)
+                print(data)
+                
+                try:
+                    q = recognizer.recognize_google(data, key=None)
+                    print(q)
+                except:
+                    return {"status": 403, "message": "Google Speech Recognition could not understand audio."}
+            return {"status": 200, "message": q}
+        
+        msg = preset_msg + q
         res = llm.generate_content(msg)
+
         return flask.render_template("chat.html",
             prev=q,
             response=markdown.markdown(res.text),                             
