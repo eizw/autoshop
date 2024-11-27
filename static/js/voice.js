@@ -82,7 +82,7 @@ function startRecording() {
             formData.append("user_voice", "true");
             formData.append("voice_query", blob, "voice_query");
             $.ajax({
-                url: "/api/chat",
+                url: "/chat",
                 type: "POST",
                 data: formData,
                 contentType: false,
@@ -94,11 +94,12 @@ function startRecording() {
                         $("#user-query").val(data.message);
                         $("#chat-form").submit();
                     } else {
-                        $("#greeting-text").text(data.message);
+                        $("#error-text").text(data.message);
                         console.log(data.message)
                         recordButton.disabled = false;
                         
                         stopButton.disabled = true;
+						recordButton.disabled = false;
                         $("#start-voice").show();
                         $("#stop-voice").hide();
                     }

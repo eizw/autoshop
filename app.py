@@ -33,13 +33,12 @@ preset_msg = "You are a shop assistant in a store with the following items: " + 
 def main():
     return flask.render_template("index.html")
 
-@app.route('/api/chat', methods=['POST'])
+@app.route('/chat', methods=['POST'])
 def chat_with_bot():
     request = flask.request
     if request.method == "POST":
         data = request.form
         q = data.get('user_query', "")
-        print(request.files)
 
         if "user_voice" in data:
             print("voice input")
@@ -69,6 +68,7 @@ def chat_with_bot():
         
         msg = preset_msg + q
         res = llm.generate_content(msg)
+        print(res.text)
 
         return flask.render_template("chat.html",
             prev=q,
