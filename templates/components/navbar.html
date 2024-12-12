@@ -1,15 +1,25 @@
-<nav class="flex-no-wrap top-0 fixed bg-gray-200 py-3 md:px-96 w-screen">
-    <div class="w-full flex flex-wrap items-center justify-start gap-5">
-        <a href="/"
-        class="text-center text-xl"
-        >ShopMate</a>
-        
-        <a href="/"
-        class="text-bottom text-lg"
-        >Home</a>
-        <a href="/items"
-        class="text-bottom text-lg"
-        >Item List</a>
+<nav class="bg-gray-800 text-white px-4 py-3 fixed w-full top-0">
+    <div class="flex justify-between items-center">
+        <!-- Logo on the left -->
+        <div class="flex items-center">
+            <a href="/" class="text-lg font-bold mr-3">ShopMate</a>
+        </div>
+
+        <!-- Links (Home, Item List) in the center -->
+        <div class="flex space-x-6 mx-auto">
+            <a href="/" class="text-md">Home</a>
+            <a href="/items" class="text-md">Item List</a>
+        </div>
+
+        <!-- User authentication options on the right -->
+        <div class="flex items-center gap-4">
+            {% if user %}
+                <span>Welcome, {{ user.name }}</span>
+                <a href="/logout" class="text-sm bg-red-500 hover:bg-red-700 text-white px-3 py-1 rounded">Logout</a>
+            {% else %}
+                <a href="/login" class="text-sm bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded">Login</a>
+                <a href="/register" class="text-sm bg-green-500 hover:bg-green-700 text-white px-3 py-1 rounded">Register</a>
+            {% endif %}
+        </div>
     </div>
-    
 </nav>

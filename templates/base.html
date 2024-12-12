@@ -9,22 +9,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js" integrity="sha512-SYfDUYPg5xspsG6OOpXU366G8SZsdHOhqk/icdrYJ2E/WKZxPxze7d2HD3AyXpT7U22PZ5y74xRpqZ6A2bJ+kQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    
 </head>
 <body class="w-screen h-screen min-h-screen block pt-20">
-    {% include 'components/navbar.html' %}
+    <!-- Navbar -->
+    {% with user=user %}
+    {% include "components/navbar.html" %}
+    {% endwith %}
 
+    <!-- Main Content -->
     {% block content %}
-
     {% endblock %}
 
+    <!-- Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     {% block javascripts %}
-
     {% endblock %}
-    
+
     <script src="../static/js/WebAudioRecorder.min.js" ></script>
-    
 </body>
 </html>
